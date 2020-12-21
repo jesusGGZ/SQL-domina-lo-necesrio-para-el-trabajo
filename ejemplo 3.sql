@@ -1,0 +1,1 @@
+select 'la materia', Mnombre, 'tiene', Mcred, 'creditos' from materia;
