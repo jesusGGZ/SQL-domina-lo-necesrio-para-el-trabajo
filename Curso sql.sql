@@ -277,3 +277,13 @@ WHERE Mnomateria like '00%';
 select * from cmateria;
 
 -- Modificación de datos. La sentencia UPDATE
+UPDATE Materia
+SET Mcostolab = 150.00
+WHERE mnomateria = '0177';
+
+SELECT  * FROM materia WHERE Mnomateria = '0177';
+
+SELECT  * FROM materia;
+
+UPDATE materia
+SET Mcred = Mcred + 10;
