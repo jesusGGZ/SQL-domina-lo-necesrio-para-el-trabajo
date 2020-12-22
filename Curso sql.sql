@@ -213,3 +213,16 @@ where anocarrera in
 (select cnocarrera from carrera 
 where cedificio = 'A501');
 
+-- Test de existencia EXISTS
+select gnogrupo, gnomaestro
+from grupo
+where exists
+(select * from academic
+where Anoemplead = gnomaestro);
+
+select gnogrupo, gnomaestro
+from grupo
+where not exists
+(select * from academic
+where Anoemplead = gnomaestro);
+
