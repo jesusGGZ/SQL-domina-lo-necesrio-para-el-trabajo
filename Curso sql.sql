@@ -168,4 +168,25 @@ SELECT MIN(Mcostolab) FROM materia;
 
 -- Eliminacion de fila duplicadas DISTINCT
 SELECT COUNT(*) FROM materia WHERE Mnocarrera = 32;
-SELECT DISTINCT Mnocarrera FROM materia WHERE Mnocarrera = 32;
+SELECT DISTINCT Mnocarrera FROM materia;
+SELECT count(DISTINCT Mnocarrera) FROM materia;
+
+-- Consultas agrupadas, Clausula GROUP BY
+SELECT mnocarrera, AVG(mcostolab)
+FROM Materia
+GROUP BY mnocarrera;
+
+SELECT mnocarrera, AVG(mcostolab)
+FROM Materia
+WHERE  Mcred = 8
+GROUP BY mnocarrera
+ORDER BY Mnocarrera DESC;
+
+SELECT * FROM materia where mcred =8 ;
+
+SELECT Materia.mcred, materia.Mnocarrera, MAX(materia.mcostolab)
+FROM materia
+GROUP BY materia.mcred, materia.Mnocarrera;
+
+
+
