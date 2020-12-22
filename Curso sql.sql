@@ -242,3 +242,13 @@ group by Mnocarrera
 having avg(Mcostolab) <
 (select avg(mcostolab)
 from materia);
+
+-- Actualizacion de la base de datos
+-- Adicion de datos. La sentencia INSERT
+INSERT INTO materia
+VALUES('0177', 'Programación con SQL', 6, 100.00, 32);
+
+SELECT * FROM Materia WHERE Mnomateria = '0177';
+
+INSERT INTO materia (Mnombre, Mnomateria, Mcred, Mcostolab, Mnocarrera)
+VALUES('Programación con SQL', '0177',  6, 100.00, 32);
