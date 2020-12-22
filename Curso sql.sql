@@ -9,7 +9,7 @@ select 'la materia', Mnombre, 'tiene', Mcred, 'creditos' from materia;
 
 select distinct mnocarrera from materia;
 
---uso de where--
+-- uso de where --
 select Mnomateria, Mnombre, Mcred, Mnocarrera, Mcostolab
 from Materia
 where Mcostolab = 100;
@@ -22,7 +22,7 @@ select Mnomateria, Mnombre, Mcred, Mnocarrera, Mcostolab
 from Materia
 where Mcostolab >= 100;
 
---Uso de BETWEEN--
+/* Uso de BETWEEN */
 select Mnomateria, Mnombre, Mcred, Mnocarrera, Mcostolab
 from Materia
 where Mcostolab BETWEEN 100 AND 200;
@@ -52,7 +52,7 @@ select Mnomateria, Mnombre, Mcred, Mnocarrera, Mcostolab
 from Materia
 where Mcred <> 10 and Mcred <> 8;
 
---Predicado por correspondencia con patron LIKE--
+-- Predicado por correspondencia con patron LIKE --
 select Mnomateria, Mnombre, Mcred, Mnocarrera, Mcostolab
 from Materia
 where Mnombre
@@ -70,7 +70,7 @@ not like '_i%';
 
 select * from materia;
 
---Predicados compuestos, operadores AND, OR y NOT--
+-- Predicados compuestos, operadores AND, OR y NOT --
 SELECT Mnomateria, Mnombre, Mcred,  Mnocarrera
 FROM Materia
 WHERE Mnocarrera = '32' AND Mcostolab > 100;
@@ -108,4 +108,53 @@ SELECT M.Mnomateria, M.Mnombre
 FROM Materia M
 WHERE M.Mnomateria = '0076';
 
--- --
+-- Consultas padre/hijo --
+SELECT * FROM academic;
+SELECT * FROM carrera;
+
+SELECT Mnomateria, Mnombre, Mnocarrera, Cnombre FROM Materia, carrera
+WHERE Cnocarrera = Mnocarrera;
+
+-- Uso de operador JOIN --
+SELECT Mnomateria, Mnombre, Mnocarrera, Cnombre 
+FROM Materia INNER JOIN carrera
+ON Cnocarrera = Mnocarrera;
+
+SELECT Gnomateria, Gnomaestro, Anombre
+FROM Academic INNER JOIN Grupo
+ON Anoemplead = Gnomaestro;
+
+-- Uso de OUTER JOINS --
+select * FROM materia;
+select * FROM grupo;
+
+SELECT Gnogrupo, Mnombre, Mcred
+FROM Materia AS M INNER JOIN Grupo AS  G
+ON M.Mnomateria = G.Gnomateria;
+
+SELECT Gnogrupo, Mnombre, Mcred
+FROM Grupo AS  G LEFT OUTER JOIN Materia AS M
+ON M.Mnomateria = G.Gnomateria;
+
+SELECT Gnogrupo, Mnombre, Mcred
+FROM Grupo AS  G RIGHT OUTER JOIN Materia AS M
+ON M.Mnomateria = G.Gnomateria;
+
+-- JOIN con criterio de seleccion de fia --
+SELECT Gnogrupo, Mnombre, Mcred, Mnocarrera
+FROM Grupo AS  G RIGHT OUTER JOIN Materia AS M
+ON M.Mnomateria = G.Gnomateria WHERE Mnocarrera =32;
+
+SELECT Gnogrupo, Mnombre, Mcred, Mnocarrera, Cnombre
+FROM Grupo AS  G RIGHT OUTER JOIN Materia AS M
+INNER JOIN carrera ON  Mnocarrera = Cnocarrera
+ON M.Mnomateria = G.Gnomateria WHERE Mnocarrera =32;
+
+-- Combinacion de resultados de consulta union --
+-- Seleccionar a todos los números y nombres de los maestros
+SELECT Anoemplead numero, anombre nombre, 'A' tipo
+FROM Academic
+UNION
+SELECT Enocuenta, Enombre, 'E'
+from Estudian
+ORDER BY nombre;
