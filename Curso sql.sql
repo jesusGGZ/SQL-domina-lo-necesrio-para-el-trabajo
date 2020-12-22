@@ -207,5 +207,9 @@ WHERE mcostolab > (SELECT MIN(academic.Asueldo * .05)
 FROM academic);
 
 -- Test de pertenencia de un conjunto IN 
-
+select anombre, asueldo
+from academic
+where anocarrera in
+(select cnocarrera from carrera 
+where cedificio = 'A501');
 
