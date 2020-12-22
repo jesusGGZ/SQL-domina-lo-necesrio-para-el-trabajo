@@ -158,3 +158,12 @@ UNION
 SELECT Enocuenta, Enombre, 'E'
 from Estudian
 ORDER BY nombre;
+
+-- Las funciones de columna AVG, SUM, MAX, MIN
+SELECT * FROM materia;
+SELECT SUM(Mcostolab) FROM materia;
+SELECT AVG(Mcostolab) FROM materia;
+SELECT MAX(Mcostolab) FROM materia;
+SELECT MIN(Mcostolab) FROM materia;
+
+-- Eliminacion de fila duplicadas DISTINCT
