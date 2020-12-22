@@ -167,3 +167,5 @@ SELECT MAX(Mcostolab) FROM materia;
 SELECT MIN(Mcostolab) FROM materia;
 
 -- Eliminacion de fila duplicadas DISTINCT
+SELECT COUNT(*) FROM materia WHERE Mnocarrera = 32;
+SELECT DISTINCT Mnocarrera FROM materia WHERE Mnocarrera = 32;
