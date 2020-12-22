@@ -268,6 +268,12 @@ WHERE Mnocarrera = 32;
 SELECT * FROM cmateria;
 
 -- supresion de datos. La sentencia DELETE
+select * from materia
+where Mnomateria like '00%';
 
+DELETE FROM Materia
+WHERE Mnomateria like '00%';
+
+select * from cmateria;
 
 -- Modificación de datos. La sentencia UPDATE
