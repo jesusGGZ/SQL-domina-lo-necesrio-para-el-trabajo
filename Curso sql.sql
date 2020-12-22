@@ -188,5 +188,15 @@ SELECT Materia.mcred, materia.Mnocarrera, MAX(materia.mcostolab)
 FROM materia
 GROUP BY materia.mcred, materia.Mnocarrera;
 
+-- Condiciones de busqueda de grupos ClaúsulaHAVING
+SELECT mnocarrera, AVG(mcostolab)
+FROM materia
+group by Mnocarrera
+HAVING AVG (Mcostolab) > 100;
 
+SELECT mnocarrera, AVG(mcostolab)
+FROM materia
+WHERE Mcostolab > 0
+group by Mnocarrera
+HAVING AVG (Mcostolab) > 100;
 
