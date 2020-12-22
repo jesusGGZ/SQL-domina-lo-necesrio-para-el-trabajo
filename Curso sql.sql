@@ -226,3 +226,13 @@ where not exists
 (select * from academic
 where Anoemplead = gnomaestro);
 
+-- subconsultas anidadas
+select a.anoemplead, a.anombre
+from academic a
+where a.Anoemplead in 
+(select c.Ccoord from carrera c
+where c.cnocarrera in 
+( select m.Mnocarrera from materia m
+where m.mcred));
+
+-- subconsultas en la clausula HAVING
