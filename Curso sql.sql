@@ -258,3 +258,16 @@ INSERT INTO CURSO VALUES ('0178', 'SQL Dinámico', NULL, NULL, 32);
 
 INSERT INTO materia (Mnombre, Mnomateria,  Mnocarrera)
 VALUES('SQL Dinámico', '0178', 32);
+
+-- La sentencia INSERT multifila
+INSERT INTO Cmateria
+SELECT *
+FROM materia
+WHERE Mnocarrera = 32;
+
+SELECT * FROM cmateria;
+
+-- supresion de datos. La sentencia DELETE
+
+
+-- Modificación de datos. La sentencia UPDATE
