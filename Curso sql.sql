@@ -236,3 +236,9 @@ where c.cnocarrera in
 where m.mcred));
 
 -- subconsultas en la clausula HAVING
+select mnocarrera
+from materia
+group by Mnocarrera
+having avg(Mcostolab) <
+(select avg(mcostolab)
+from materia);
