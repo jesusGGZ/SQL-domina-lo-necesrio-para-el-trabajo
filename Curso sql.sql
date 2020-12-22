@@ -200,3 +200,12 @@ WHERE Mcostolab > 0
 group by Mnocarrera
 HAVING AVG (Mcostolab) > 100;
 
+-- Subconsultas
+SELECT mnomateria, mnombre, mcostolab
+FROM materia
+WHERE mcostolab > (SELECT MIN(academic.Asueldo * .05)
+FROM academic);
+
+-- Test de pertenencia de un conjunto IN 
+
+
