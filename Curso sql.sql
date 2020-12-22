@@ -252,3 +252,9 @@ SELECT * FROM Materia WHERE Mnomateria = '0177';
 
 INSERT INTO materia (Mnombre, Mnomateria, Mcred, Mcostolab, Mnocarrera)
 VALUES('Programación con SQL', '0177',  6, 100.00, 32);
+
+-- Inserción de valores NULL
+INSERT INTO CURSO VALUES ('0178', 'SQL Dinámico', NULL, NULL, 32);
+
+INSERT INTO materia (Mnombre, Mnomateria,  Mnocarrera)
+VALUES('SQL Dinámico', '0178', 32);
